@@ -6,6 +6,9 @@ if <%= !!EffectiveBootstrap.use_custom_data_confirm %> && (window.Rails || $.rai
 
     if $obj.data('confirmed')
       true
+    if $obj.attr('type') == 'submit'
+      # unhjack Code & Effect from submit tags'
+      confirm($obj.data('confirm'))
     else
       $obj.data('confirm-original', $obj.html())
       $obj.html($obj.data('confirm'))
